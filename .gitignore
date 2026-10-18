@@ -1,68 +1,46 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
+# Executables and Binaries
+*.exe
 *.o
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-*.so.*
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
 *.a
 *.lib
+*.dll
+*.so
+*.dylib
+dpi_engine
 
-# Executables
-*.exe
-*.out
-*.app
-
-# Build directories
+# Build Directories
 build/
-Build/
-build-*/
-
-# CMake generated files
+bin/
+out/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
-install_manifest.txt
-compile_commands.json
 
-# Temporary files
-*.tmp
-*.log
-*.bak
+# Generated Output PCAPs
+output*.pcap
+filtered*.pcap
+live_out*.pcap
+result*.pcap
+
+# Keep Test PCAP captures
+!test_dpi.pcap
+!test_security.pcap
+
+# IDE and Editor Directories
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/c_cpp_properties.json
+!.vscode/settings.json
+.vs/
 *.swp
+*.suo
+*~
 
-# vcpkg
-vcpkg_installed/
-
-# debug information files
-*.dwo
-
-# test output & cache
-Testing/
-.cache/
+# Temporary Directories
+Packet_analyzer-main/
+scratch/
+scratch_repo/
+*.log

@@ -1,0 +1,47 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run / Debug DPI Engine",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [
+        "test_dpi.pcap",
+        "output.pcap"
+      ],
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "cwd": "${workspaceFolder}/Packet_analyzer-main",
+      "program": "${workspaceFolder}/Packet_analyzer-main/dpi_engine.exe",
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
+      "preLaunchTask": "Build DPI Engine",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/Aditya Raj/OneDrive/Documents/Desktop/DPI PACKET/Packet_analyzer-main/src",
+      "program": "c:/Users/Aditya Raj/OneDrive/Documents/Desktop/DPI PACKET/Packet_analyzer-main/src/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

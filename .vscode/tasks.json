@@ -1,0 +1,107 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build DPI Engine",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-O2",
+                "-I",
+                "${workspaceFolder}/Packet_analyzer-main/include",
+                "-o",
+                "${workspaceFolder}/Packet_analyzer-main/dpi_engine.exe",
+                "${workspaceFolder}/Packet_analyzer-main/src/dpi_mt.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/ids_engine.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/live_capture.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/pcap_reader.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/packet_parser.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/sni_extractor.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/types.cpp",
+                "-lws2_32",
+                "-liphlpapi"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/Packet_analyzer-main"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Build Modular DPI Engine (main_dpi)",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-O2",
+                "-I",
+                "${workspaceFolder}/Packet_analyzer-main/include",
+                "-o",
+                "${workspaceFolder}/Packet_analyzer-main/dpi_modular.exe",
+                "${workspaceFolder}/Packet_analyzer-main/src/main_dpi.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/dpi_engine.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/load_balancer.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/fast_path.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/rule_manager.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/connection_tracker.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/sni_extractor.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/pcap_reader.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/packet_parser.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/types.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/Packet_analyzer-main"
+            },
+            "group": {
+                "kind": "build"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Build Basic Packet Analyzer",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-O2",
+                "-I",
+                "${workspaceFolder}/Packet_analyzer-main/include",
+                "-o",
+                "${workspaceFolder}/Packet_analyzer-main/packet_analyzer.exe",
+                "${workspaceFolder}/Packet_analyzer-main/src/main.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/pcap_reader.cpp",
+                "${workspaceFolder}/Packet_analyzer-main/src/packet_parser.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/Packet_analyzer-main"
+            },
+            "group": {
+                "kind": "build"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Run DPI Engine",
+            "type": "shell",
+            "command": ".\\dpi_engine.exe",
+            "args": [
+                "test_dpi.pcap",
+                "output.pcap"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/Packet_analyzer-main"
+            },
+            "dependsOn": "Build DPI Engine"
+        }
+    ]
+}
